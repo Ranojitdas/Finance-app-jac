@@ -273,5 +273,48 @@
       "summary": "High transaction velocity in last 60 minutes; decision=Ambiguous; confidence=0.8"
     },
     "timestamp": "2026-05-15T11:28:00"
+  },
+  {
+    "txn_id": "interactive_20260515_234120_8991",
+    "user_id": "u_001",
+    "scenario": "interactive_query",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier",
+      "location_mismatch"
+    ],
+    "observations": {
+      "account_age_days": 450,
+      "velocity_60m": 1,
+      "merchant_risk": "high",
+      "amount_outlier": false,
+      "location_mismatch": true,
+      "prior_fraud_rate": 0.5
+    },
+    "risk_score": 60,
+    "decision": "ESCALATE",
+    "confidence": 0.8,
+    "reasons": [
+      "High-risk merchant",
+      "Transaction location differs from home country",
+      "User has risky prior outcomes"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier, location_mismatch",
+      "TOOL user_profile -> account_age_days=450, avg_amount=3200, home_country=IN",
+      "TOOL velocity -> velocity_60m=1",
+      "TOOL merchant_risk -> merchant_risk=high",
+      "TOOL amount_outlier -> amount_outlier=False",
+      "TOOL location_mismatch -> location_mismatch=True",
+      "MEMORY prior_fraud_rate -> 0.5",
+      "DECISION score=60 -> ESCALATE"
+    ],
+    "explainability": {
+      "label": "Ambiguous",
+      "summary": "Prior-risk 0.5 detected; High-risk merchant; decision=Ambiguous; confidence=0.8"
+    },
+    "timestamp": "2026-05-15T23:41:20.899477"
   }
 ]

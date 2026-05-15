@@ -41,13 +41,12 @@
           <div>
             <p class="kicker">Fintech x Agentic AI x JacHacks 2026</p>
             <h1>
-              Fraud investigations with
-              <span>real agent behavior,</span>
-              not just a score.
+              Ask the agent your own questions —
+              <span>type transactions, get instant</span>
+              decisions with full explainability.
             </h1>
             <p class="hero-copy">
-              PayGuard Agent reviews suspicious transactions and returns ALLOW, ESCALATE, or BLOCK.
-              Every result includes a transparent trace: plan, tool calls, memory context, and final rationale.
+              PayGuard Agent investigates transactions interactively. Type a transaction, the agent checks for fraud signals (merchant risk, velocity, amount anomaly, location mismatch), and responds with ALLOW, ESCALATE, or BLOCK — plus reasons and an explainability label.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#usage">Run Demo</a>
@@ -108,12 +107,16 @@
             <p>Combines signals into a weighted score and chooses a final action.</p>
           </article>
           <article class="card">
+            <h3>Interactive Chat</h3>
+            <p>Ask the agent live: type transactions, get instant decisions with full explainability.</p>
+          </article>
+          <article class="card">
             <h3>Explainability</h3>
-            <p>Outputs a full trace from plan to decision with human-readable reasons.</p>
+            <p>Every decision shows plan, tool calls, memory, reasoning, and a human-friendly label.</p>
           </article>
           <article class="card">
             <h3>Hackathon Friendly</h3>
-            <p>No paid API required. Fully local, reproducible, and demo-ready.</p>
+            <p>No paid API required. Fully local, ask unlimited questions, reproducible.</p>
           </article>
         </div>
       </section>
@@ -182,12 +185,12 @@
             <button data-copy-target="cmd-install-unix" class="copy-btn">Copy</button>
           </div>
           <div class="command-block">
-            <p class="label">Standard run</p>
-            <code id="cmd-standard">python src/app.py</code>
-            <button data-copy-target="cmd-standard" class="copy-btn">Copy</button>
+            <p class="label">Ask the Agent (primary mode)</p>
+            <code id="cmd-interactive">python src/interactive.py</code>
+            <button data-copy-target="cmd-interactive" class="copy-btn">Copy</button>
           </div>
           <div class="command-block">
-            <p class="label">Deterministic run (recommended)</p>
+            <p class="label">Demo run (optional, for video)</p>
             <code id="cmd-reset">python src/app.py --reset-memory</code>
             <button data-copy-target="cmd-reset" class="copy-btn">Copy</button>
           </div>
@@ -204,9 +207,9 @@
         </div>
 
         <div class="tips">
-          <p>Tip: Use reset mode before recording your 3-minute demo for stable output.</p>
-          <p>Output appears in terminal with full investigation traces for every scenario.</p>
-          <p>Judge tip: run from project root so data and memory paths resolve correctly.</p>
+          <p>💡 Primary: Run interactive mode, type your own transactions, and query the agent in real-time.</p>
+          <p>📹 Optional: Use demo mode before recording your video for stable, predefined output.</p>
+          <p>✅ Judge tip: run from project root so data and memory paths resolve correctly.</p>
         </div>
       </section>
 

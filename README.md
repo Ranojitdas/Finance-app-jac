@@ -33,12 +33,19 @@ This MVP is intentionally simple and fully local:
 ## Run locally
 From project root:
 
+**Ask the agent — interactive chat mode:**
 ```bash
-python src/app.py
+python src/interactive.py
 ```
 
-For deterministic demo output each time, reset memory before the run:
+Type a transaction:
+```
+user_id: u_001, amount: 8000, merchant_id: m_202, country: US
+```
 
+Agent will investigate and respond instantly with decision + explainability.
+
+**Optional: Batch demo mode (for video):**
 ```bash
 python src/app.py --reset-memory
 ```
@@ -46,7 +53,7 @@ python src/app.py --reset-memory
 If `python` does not work on the system, try:
 
 ```bash
-py src/app.py --reset-memory
+py src/interactive.py
 ```
 
 ## Install on any system
@@ -95,6 +102,14 @@ Linux / macOS:
 ## Judge quick start (portable)
 From project root:
 
+**Ask the agent your own questions:**
+```bash
+python src/interactive.py
+```
+
+Type transactions. Agent investigates and responds instantly.
+
+**Or run the automated demo (no interaction):**
 ```bash
 python src/app.py --reset-memory
 ```
