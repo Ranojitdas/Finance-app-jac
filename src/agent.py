@@ -69,6 +69,9 @@ class FraudInvestigationAgent:
         decision = self.decide(score)
         investigation_log.append(f"DECISION score={score} -> {decision}")
 
+        # Explainability: short label + one-line human-friendly summary
+        label, summary = self.summarize_decision(score, reasons, observations)
+
         result = {
             "txn_id": txn["txn_id"],
             "user_id": user_id,
@@ -80,6 +83,7 @@ class FraudInvestigationAgent:
             "confidence": self.confidence(score),
             "reasons": reasons[:3],
             "investigation_log": investigation_log,
+            "explainability": {"label": label, "summary": summary},
             "timestamp": txn["timestamp"],
         }
 
@@ -133,3 +137,28 @@ class FraudInvestigationAgent:
     def confidence(score: int) -> float:
         # Convert risk score into a simple confidence metric for the demo UI/logs.
         return round(0.5 + (score / 200), 2)
+
+    def summarize_decision(self, score: int, reasons: list[str], obs: dict[str, Any]) -> tuple[str, str]:
+        """Return a short label and a one-line human-friendly summary for the decision.
+
+        Labels: 'Fraud' (BLOCK), 'Ambiguous' (ESCALATE), 'Likely Legit' (ALLOW)
+        """
+        if score >= 70:
+            label = "Fraud"
+        elif score >= 40:
+            label = "Ambiguous"
+        else:
+            label = "Likely Legit"
+
+        top_reason = reasons[0] if reasons else "no strong signals"
+        conf = self.confidence(score)
+
+        # Include a concise summary mentioning the primary reason and confidence.
+        summary = f"{top_reason}; decision={label}; confidence={conf}"
+
+        # If there is a notable prior fraud rate, mention it succinctly.
+        prior = obs.get("prior_fraud_rate")
+        if prior is not None and prior >= 0.5:
+            summary = f"Prior-risk {prior} detected; {summary}"
+
+        return label, summary

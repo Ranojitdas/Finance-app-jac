@@ -83,3 +83,46 @@ window.addEventListener("scroll", () => {
 updateScrollProgress();
 updateActiveSection();
 animateCounters();
+
+// Demo results: fetch demo_results.json and render explainability cards
+async function loadDemoResults() {
+  const container = document.getElementById("results-grid");
+  if (!container) return;
+  container.innerHTML = "<p class=\"muted\">Loading...</p>";
+
+  try {
+    const res = await fetch("./demo_results.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("failed to fetch demo results");
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      container.innerHTML = "<p class=\"muted\">No demo results available.</p>";
+      return;
+    }
+
+    container.innerHTML = "";
+    for (const item of data) {
+      const card = document.createElement("article");
+      card.className = "card result-card";
+
+      const label = (item.explainability && item.explainability.label) || item.decision || "Unknown";
+      const summary = (item.explainability && item.explainability.summary) || "";
+
+      card.innerHTML = `
+        <h3>${item.scenario.replace(/_/g, ' ')}</h3>
+        <p><strong>Txn:</strong> ${item.txn_id} — <strong>Decision:</strong> ${item.decision}</p>
+        <p><span class="badge">${label}</span> ${summary}</p>
+      `;
+
+      container.appendChild(card);
+    }
+  } catch (e) {
+    container.innerHTML = `<p class=\"muted\">Unable to load demo results.</p>`;
+    console.error(e);
+  }
+}
+
+const refreshBtn = document.getElementById("btn-refresh-results");
+if (refreshBtn) refreshBtn.addEventListener("click", loadDemoResults);
+
+// Load on page open
+window.addEventListener("load", loadDemoResults);
