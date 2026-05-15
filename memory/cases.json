@@ -1,0 +1,249 @@
+[
+  {
+    "txn_id": "t_1001",
+    "user_id": "u_001",
+    "scenario": "baseline_legit_purchase",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier"
+    ],
+    "observations": {
+      "account_age_days": 450,
+      "velocity_60m": 1,
+      "merchant_risk": "low",
+      "amount_outlier": false,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 0,
+    "decision": "ALLOW",
+    "confidence": 0.5,
+    "reasons": [],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier",
+      "TOOL user_profile -> account_age_days=450, avg_amount=3200, home_country=IN",
+      "TOOL velocity -> velocity_60m=1",
+      "TOOL merchant_risk -> merchant_risk=low",
+      "TOOL amount_outlier -> amount_outlier=False",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=0 -> ALLOW"
+    ],
+    "timestamp": "2026-05-15T10:30:00"
+  },
+  {
+    "txn_id": "t_1002",
+    "user_id": "u_001",
+    "scenario": "account_takeover_high_value_cross_border",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier",
+      "location_mismatch"
+    ],
+    "observations": {
+      "account_age_days": 450,
+      "velocity_60m": 2,
+      "merchant_risk": "high",
+      "amount_outlier": true,
+      "location_mismatch": true,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 75,
+    "decision": "BLOCK",
+    "confidence": 0.88,
+    "reasons": [
+      "High-risk merchant",
+      "Amount is high compared to user average",
+      "Transaction location differs from home country"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier, location_mismatch",
+      "TOOL user_profile -> account_age_days=450, avg_amount=3200, home_country=IN",
+      "TOOL velocity -> velocity_60m=2",
+      "TOOL merchant_risk -> merchant_risk=high",
+      "TOOL amount_outlier -> amount_outlier=True",
+      "TOOL location_mismatch -> location_mismatch=True",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=75 -> BLOCK"
+    ],
+    "timestamp": "2026-05-15T10:40:00"
+  },
+  {
+    "txn_id": "t_1003",
+    "user_id": "u_003",
+    "scenario": "new_user_ambiguous_escalation",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier"
+    ],
+    "observations": {
+      "account_age_days": 12,
+      "velocity_60m": 1,
+      "merchant_risk": "medium",
+      "amount_outlier": true,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 50,
+    "decision": "ESCALATE",
+    "confidence": 0.75,
+    "reasons": [
+      "Medium-risk merchant",
+      "Amount is high compared to user average",
+      "New account has higher uncertainty"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier",
+      "TOOL user_profile -> account_age_days=12, avg_amount=120, home_country=US",
+      "TOOL velocity -> velocity_60m=1",
+      "TOOL merchant_risk -> merchant_risk=medium",
+      "TOOL amount_outlier -> amount_outlier=True",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=50 -> ESCALATE"
+    ],
+    "timestamp": "2026-05-15T10:45:00"
+  },
+  {
+    "txn_id": "t_1004",
+    "user_id": "u_002",
+    "scenario": "false_positive_travel_like_pattern",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier",
+      "location_mismatch"
+    ],
+    "observations": {
+      "account_age_days": 40,
+      "velocity_60m": 1,
+      "merchant_risk": "low",
+      "amount_outlier": false,
+      "location_mismatch": true,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 20,
+    "decision": "ALLOW",
+    "confidence": 0.6,
+    "reasons": [
+      "Transaction location differs from home country"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier, location_mismatch",
+      "TOOL user_profile -> account_age_days=40, avg_amount=9800, home_country=IN",
+      "TOOL velocity -> velocity_60m=1",
+      "TOOL merchant_risk -> merchant_risk=low",
+      "TOOL amount_outlier -> amount_outlier=False",
+      "TOOL location_mismatch -> location_mismatch=True",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=20 -> ALLOW"
+    ],
+    "timestamp": "2026-05-15T11:05:00"
+  },
+  {
+    "txn_id": "t_1005",
+    "user_id": "u_005",
+    "scenario": "mule_pattern_small_rapid_1",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier"
+    ],
+    "observations": {
+      "account_age_days": 210,
+      "velocity_60m": 1,
+      "merchant_risk": "high",
+      "amount_outlier": false,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 30,
+    "decision": "ALLOW",
+    "confidence": 0.65,
+    "reasons": [
+      "High-risk merchant"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier",
+      "TOOL user_profile -> account_age_days=210, avg_amount=520, home_country=IN",
+      "TOOL velocity -> velocity_60m=1",
+      "TOOL merchant_risk -> merchant_risk=high",
+      "TOOL amount_outlier -> amount_outlier=False",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=30 -> ALLOW"
+    ],
+    "timestamp": "2026-05-15T11:10:00"
+  },
+  {
+    "txn_id": "t_1006",
+    "user_id": "u_005",
+    "scenario": "mule_pattern_small_rapid_2",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier"
+    ],
+    "observations": {
+      "account_age_days": 210,
+      "velocity_60m": 2,
+      "merchant_risk": "high",
+      "amount_outlier": false,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 30,
+    "decision": "ALLOW",
+    "confidence": 0.65,
+    "reasons": [
+      "High-risk merchant"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier",
+      "TOOL user_profile -> account_age_days=210, avg_amount=520, home_country=IN",
+      "TOOL velocity -> velocity_60m=2",
+      "TOOL merchant_risk -> merchant_risk=high",
+      "TOOL amount_outlier -> amount_outlier=False",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=30 -> ALLOW"
+    ],
+    "timestamp": "2026-05-15T11:22:00"
+  },
+  {
+    "txn_id": "t_1007",
+    "user_id": "u_005",
+    "scenario": "mule_pattern_small_rapid_3",
+    "plan": [
+      "user_profile",
+      "velocity",
+      "merchant_risk",
+      "amount_outlier"
+    ],
+    "observations": {
+      "account_age_days": 210,
+      "velocity_60m": 3,
+      "merchant_risk": "high",
+      "amount_outlier": false,
+      "prior_fraud_rate": 0.0
+    },
+    "risk_score": 60,
+    "decision": "ESCALATE",
+    "confidence": 0.8,
+    "reasons": [
+      "High transaction velocity in last 60 minutes",
+      "High-risk merchant"
+    ],
+    "investigation_log": [
+      "PLAN: user_profile, velocity, merchant_risk, amount_outlier",
+      "TOOL user_profile -> account_age_days=210, avg_amount=520, home_country=IN",
+      "TOOL velocity -> velocity_60m=3",
+      "TOOL merchant_risk -> merchant_risk=high",
+      "TOOL amount_outlier -> amount_outlier=False",
+      "MEMORY prior_fraud_rate -> 0.0",
+      "DECISION score=60 -> ESCALATE"
+    ],
+    "timestamp": "2026-05-15T11:28:00"
+  }
+]

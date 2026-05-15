@@ -1,0 +1,65 @@
+[
+  {
+    "scenario": "baseline_legit_purchase",
+    "txn_id": "t_1001",
+    "user_id": "u_001",
+    "merchant_id": "m_101",
+    "amount": 2800,
+    "country": "IN",
+    "timestamp": "2026-05-15T10:30:00"
+  },
+  {
+    "scenario": "account_takeover_high_value_cross_border",
+    "txn_id": "t_1002",
+    "user_id": "u_001",
+    "merchant_id": "m_202",
+    "amount": 28000,
+    "country": "RU",
+    "timestamp": "2026-05-15T10:40:00"
+  },
+  {
+    "scenario": "new_user_ambiguous_escalation",
+    "txn_id": "t_1003",
+    "user_id": "u_003",
+    "merchant_id": "m_303",
+    "amount": 400,
+    "country": "US",
+    "timestamp": "2026-05-15T10:45:00"
+  },
+  {
+    "scenario": "false_positive_travel_like_pattern",
+    "txn_id": "t_1004",
+    "user_id": "u_002",
+    "merchant_id": "m_404",
+    "amount": 11200,
+    "country": "AE",
+    "timestamp": "2026-05-15T11:05:00"
+  },
+  {
+    "scenario": "mule_pattern_small_rapid_1",
+    "txn_id": "t_1005",
+    "user_id": "u_005",
+    "merchant_id": "m_505",
+    "amount": 790,
+    "country": "IN",
+    "timestamp": "2026-05-15T11:10:00"
+  },
+  {
+    "scenario": "mule_pattern_small_rapid_2",
+    "txn_id": "t_1006",
+    "user_id": "u_005",
+    "merchant_id": "m_505",
+    "amount": 810,
+    "country": "IN",
+    "timestamp": "2026-05-15T11:22:00"
+  },
+  {
+    "scenario": "mule_pattern_small_rapid_3",
+    "txn_id": "t_1007",
+    "user_id": "u_005",
+    "merchant_id": "m_505",
+    "amount": 830,
+    "country": "IN",
+    "timestamp": "2026-05-15T11:28:00"
+  }
+]

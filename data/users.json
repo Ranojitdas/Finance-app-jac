@@ -1,0 +1,7 @@
+{
+  "u_001": {"home_country": "IN", "avg_amount": 3200, "account_age_days": 450},
+  "u_002": {"home_country": "IN", "avg_amount": 9800, "account_age_days": 40},
+  "u_003": {"home_country": "US", "avg_amount": 120, "account_age_days": 12},
+  "u_004": {"home_country": "IN", "avg_amount": 1600, "account_age_days": 820},
+  "u_005": {"home_country": "IN", "avg_amount": 520, "account_age_days": 210}
+}
