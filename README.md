@@ -2,6 +2,8 @@
 
 A practical, hackathon-friendly fraud investigation agent inspired by PayGuard.
 
+Repository: https://github.com/Ranojitdas/Finance-app-jac
+
 This MVP is intentionally simple and fully local:
 - No external APIs required
 - Deterministic behavior for stable demos
@@ -48,7 +50,21 @@ py src/app.py --reset-memory
 ```
 
 ## Install on any system
-Clone your repo and run one install script from project root.
+One-command setup from anywhere (clones repo + installs):
+
+Windows (PowerShell):
+
+```powershell
+powershell -ExecutionPolicy Bypass -Command "iwr https://raw.githubusercontent.com/Ranojitdas/Finance-app-jac/main/scripts/bootstrap_windows.ps1 -UseBasicParsing | iex"
+```
+
+Linux / macOS:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Ranojitdas/Finance-app-jac/main/scripts/bootstrap_unix.sh | bash
+```
+
+If you already cloned the repo, run one install script from project root.
 
 Windows (PowerShell):
 
@@ -87,6 +103,7 @@ Expected behavior:
 - Prints 7 investigation scenarios
 - Shows trace logs in the format: PLAN -> TOOL -> MEMORY -> DECISION
 - Outputs ALLOW, ESCALATE, or BLOCK with reasons
+- No paid API keys required
 
 ## Open the project webpage
 From project root, run a quick static server:

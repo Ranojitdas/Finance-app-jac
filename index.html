@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayGuard Agent | Agentic Fintech Demo</title>
+    <meta
+      name="description"
+      content="PayGuard Agent is an agentic fintech demo that investigates transactions with planning, tool use, memory, and explainable decisions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="grid-overlay"></div>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="ambient ambient-c"></div>
+
+    <header class="topbar reveal">
+      <div class="brand">PAYGUARD AGENT</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#timeline">Journey</a>
+        <a href="#usage">How To Use</a>
+        <a href="#scenarios">Scenarios</a>
+        <a href="#start">Start</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="hero-layout">
+          <div>
+            <p class="kicker">Fintech x Agentic AI x JacHacks 2026</p>
+            <h1>
+              Fraud investigations with
+              <span>real agent behavior,</span>
+              not just a score.
+            </h1>
+            <p class="hero-copy">
+              PayGuard Agent reviews suspicious transactions and returns ALLOW, ESCALATE, or BLOCK.
+              Every result includes a transparent trace: plan, tool calls, memory context, and final rationale.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#usage">Run Demo</a>
+              <a class="btn btn-ghost" href="#flow">How It Works</a>
+              <a class="btn btn-ghost" href="https://github.com/Ranojitdas/Finance-app-jac" target="_blank" rel="noreferrer">View GitHub</a>
+            </div>
+          </div>
+
+          <aside class="hero-console" aria-label="Agent trace preview">
+            <p class="console-head">Investigation Snapshot</p>
+            <div class="console-lines">
+              <p><span>PLAN</span> user_profile, velocity, merchant_risk, amount_outlier</p>
+              <p><span>TOOL</span> merchant_risk -> high</p>
+              <p><span>TOOL</span> location_mismatch -> true</p>
+              <p><span>MEMORY</span> prior_fraud_rate -> 0.33</p>
+              <p><span>DECISION</span> score=75 -> BLOCK</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="stat-band" aria-label="Project highlights">
+          <article>
+            <strong data-count="7">0</strong>
+            <p>Scenarios</p>
+          </article>
+          <article>
+            <strong data-count="5">0</strong>
+            <p>Tool Checks</p>
+          </article>
+          <article>
+            <strong data-count="3">0</strong>
+            <p>Decisions</p>
+          </article>
+          <article>
+            <strong data-count="0">0</strong>
+            <p>Paid APIs</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="features" class="panel reveal">
+        <h2>Core Capabilities</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Planning</h3>
+            <p>Builds a deterministic investigation plan per transaction for consistent demos.</p>
+          </article>
+          <article class="card">
+            <h3>Tool Use</h3>
+            <p>Executes user profile, velocity, merchant risk, amount outlier, and location checks.</p>
+          </article>
+          <article class="card">
+            <h3>Memory</h3>
+            <p>Stores prior cases locally and reuses them in future decisions.</p>
+          </article>
+          <article class="card">
+            <h3>Multi-Step Reasoning</h3>
+            <p>Combines signals into a weighted score and chooses a final action.</p>
+          </article>
+          <article class="card">
+            <h3>Explainability</h3>
+            <p>Outputs a full trace from plan to decision with human-readable reasons.</p>
+          </article>
+          <article class="card">
+            <h3>Hackathon Friendly</h3>
+            <p>No paid API required. Fully local, reproducible, and demo-ready.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="flow" class="panel reveal">
+        <h2>Agent Workflow</h2>
+        <ol class="flow-list">
+          <li>
+            <strong>Plan checks:</strong> choose validations based on transaction context.
+          </li>
+          <li>
+            <strong>Call tools:</strong> fetch profile, velocity, merchant risk, and anomaly signals.
+          </li>
+          <li>
+            <strong>Read memory:</strong> compute prior fraud rate for the user.
+          </li>
+          <li>
+            <strong>Score:</strong> convert observations into a risk score from 0 to 100.
+          </li>
+          <li>
+            <strong>Decide:</strong> return ALLOW, ESCALATE, or BLOCK with top reasons.
+          </li>
+        </ol>
+        <div class="flow-note">Each step is logged so judges can verify autonomy, tool usage, and rationale.</div>
+      </section>
+
+      <section id="timeline" class="panel reveal">
+        <h2>Demo Flow</h2>
+        <div class="timeline">
+          <article>
+            <span class="dot"></span>
+            <h3>1. Install in one command</h3>
+            <p>Judges run a single bootstrap command from GitHub and get a ready environment fast.</p>
+          </article>
+          <article>
+            <span class="dot"></span>
+            <h3>2. Launch deterministic run</h3>
+            <p>Use reset-memory mode to keep scenario outcomes stable during live judging.</p>
+          </article>
+          <article>
+            <span class="dot"></span>
+            <h3>3. Review the agent trace</h3>
+            <p>Output shows PLAN -> TOOL -> MEMORY -> DECISION for transparent reasoning.</p>
+          </article>
+          <article>
+            <span class="dot"></span>
+            <h3>4. Validate persistence</h3>
+            <p>The memory file stores previous investigations and influences later risk posture.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="usage" class="panel reveal">
+        <h2>How To Run</h2>
+        <p class="muted">Install once from GitHub, then run the demo locally.</p>
+
+        <div class="command-wrap">
+          <div class="command-block">
+            <p class="label">Install once (Windows PowerShell)</p>
+            <code id="cmd-install-win">powershell -ExecutionPolicy Bypass -Command "iwr https://raw.githubusercontent.com/Ranojitdas/Finance-app-jac/main/scripts/bootstrap_windows.ps1 -UseBasicParsing | iex"</code>
+            <button data-copy-target="cmd-install-win" class="copy-btn">Copy</button>
+          </div>
+          <div class="command-block">
+            <p class="label">Install once (Linux / macOS)</p>
+            <code id="cmd-install-unix">curl -fsSL https://raw.githubusercontent.com/Ranojitdas/Finance-app-jac/main/scripts/bootstrap_unix.sh | bash</code>
+            <button data-copy-target="cmd-install-unix" class="copy-btn">Copy</button>
+          </div>
+          <div class="command-block">
+            <p class="label">Standard run</p>
+            <code id="cmd-standard">python src/app.py</code>
+            <button data-copy-target="cmd-standard" class="copy-btn">Copy</button>
+          </div>
+          <div class="command-block">
+            <p class="label">Deterministic run (recommended)</p>
+            <code id="cmd-reset">python src/app.py --reset-memory</code>
+            <button data-copy-target="cmd-reset" class="copy-btn">Copy</button>
+          </div>
+          <div class="command-block">
+            <p class="label">Windows fallback (if python is missing in PATH)</p>
+            <code id="cmd-win-fallback">py src/app.py --reset-memory</code>
+            <button data-copy-target="cmd-win-fallback" class="copy-btn">Copy</button>
+          </div>
+          <div class="command-block">
+            <p class="label">Run with virtual environment Python (best for judges)</p>
+            <code id="cmd-venv-run">.venv/bin/python src/app.py --reset-memory (Linux/macOS) | .\\.venv\\Scripts\\python.exe src/app.py --reset-memory (Windows)</code>
+            <button data-copy-target="cmd-venv-run" class="copy-btn">Copy</button>
+          </div>
+        </div>
+
+        <div class="tips">
+          <p>Tip: Use reset mode before recording your 3-minute demo for stable output.</p>
+          <p>Output appears in terminal with full investigation traces for every scenario.</p>
+          <p>Judge tip: run from project root so data and memory paths resolve correctly.</p>
+        </div>
+      </section>
+
+      <section id="scenarios" class="panel reveal">
+        <h2>Included Scenario Set</h2>
+        <div class="chips">
+          <span>Baseline legitimate purchase</span>
+          <span>Account takeover cross-border</span>
+          <span>New user ambiguous escalation</span>
+          <span>False positive travel-like pattern</span>
+          <span>Mule pattern rapid small transactions</span>
+        </div>
+      </section>
+
+      <section class="panel reveal social-proof">
+        <h2>Why This Is Judge-Ready</h2>
+        <div class="quote-grid">
+          <blockquote>
+            <p>"Clear autonomous behavior, not a thin API wrapper."</p>
+            <cite>Agentic AI Criteria</cite>
+          </blockquote>
+          <blockquote>
+            <p>"The fintech use case is practical and easy to verify."</p>
+            <cite>Track Fit</cite>
+          </blockquote>
+          <blockquote>
+            <p>"Install and demo flow are reproducible in minutes."</p>
+            <cite>Judge Experience</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="panel reveal">
+        <h2>Key Project Paths</h2>
+        <ul class="path-list">
+          <li>Runner: src/app.py</li>
+          <li>Agent logic: src/agent.py</li>
+          <li>Jac logic: jac/payguard_agent.jac</li>
+          <li>Scenarios: data/scenarios.json</li>
+          <li>Memory: memory/cases.json</li>
+        </ul>
+      </section>
+
+      <section id="start" class="panel reveal cta-panel">
+        <h2>Ready To Run?</h2>
+        <p>Install in one command, run the deterministic demo, and show the trace in your submission video.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#usage">Get Install Commands</a>
+          <a class="btn btn-ghost" href="https://github.com/Ranojitdas/Finance-app-jac" target="_blank" rel="noreferrer">Open Repository</a>
+        </div>
+      </section>
+
+      <section id="faq" class="panel reveal">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Do I need external APIs?</summary>
+          <p>No. The current project is fully local and works without external APIs.</p>
+        </details>
+        <details>
+          <summary>Is Jac included in this project?</summary>
+          <p>
+            Yes. Jac logic is in jac/payguard_agent.jac. Python currently runs the local demo path.
+            You can wire Jaseci runtime for Jac-primary execution in final submission.
+          </p>
+        </details>
+        <details>
+          <summary>Can I host this page quickly?</summary>
+          <p>Yes. Run a local static server and open web/index.html in your browser.</p>
+        </details>
+      </section>
+    </main>
+
+    <footer class="reveal">
+      <p>Built for JacHacks 2026 | PayGuard Agent</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
